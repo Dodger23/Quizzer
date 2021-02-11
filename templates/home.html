@@ -8,12 +8,308 @@
                 crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+                crossorigin="anonymous" />
         <style>
-                
+                nav div a:hover {
+                        text-decoration: none;
+                        color: #f7d372;
+                }
+
+                nav {
+                        background-color: #283071;
+                        color: #fff;
+                        font-weight: 600;
+                }
+
+                nav div a span {
+                        font-size: x-large;
+                }
+
+                .selected {
+                        font-weight: 800;
+                        color: #f7d372;
+                }
+
+                .avatar {
+                        vertical-align: middle;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .fa-bars {
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                h1 {
+                        font-size: 40px;
+                        display: block;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                h3 {
+                        font-size: 22px;
+                }
+
+                .btn-yellow {
+                        background-color: #f7d372;
+                        color: #283071;
+                        font-weight: bold;
+                }
+
+                .btn-yellow:hover {
+                        background-color: orange;
+                }
+
+                footer {
+                        background-color: #283071;
+                        color: white;
+                        text-align: center;
+                        padding: 10%;
+
+                }
+
+                .left {
+                        width: 50%;
+                }
+
+                .right {
+                        width: 50%;
+                }
+
+                #group_not_found {
+                        display: none;
+                }
+
+                @media (max-width: 575px) {
+                        #join_group_section_image {
+                                display: none;
+                        }
+                }
         </style>
 </head>
 
-<body>
+<body onload="fetch_grourps()">
+
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-dark  flex justify-between">
+                <div>
+                        <a href="#"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                </div>
+
+                <div>
+                        <a href="#" class="mx-3"><span class="selected">Home</span></a>
+                        <a href="#" class="mx-3"><span>Groups</span></a>
+                        <a href="#" class="mx-3"><span>Quizzes</span></a>
+                        <a href="#" class="mx-3"><span>About us</span></a>
+                </div>
+
+                <div class="flex justify-end" style="padding: 10px;">
+                        <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
+                        <a href="#"><img class="avatar" src="../static/avatar2.jpg"></a>
+                </div>
+
+        </nav>
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <div class="container">
+
+                <!--********************************************  Join Group *********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+                <div class="section mt-5 flex justify-center  row">
+                        <div class=" left flex justify-center col-12 col-md-6 ">
+                                <div class="flex justify-center flex-col">
+                                        <h1 class="mb-3">Join Group</h1>
+                                        <h3 style="color: #5A5A5A;">If you don't have the group id please ask your
+                                                instructor<br> to give it to you</h3>
+                                        <div class="mt-5">
+                                                <form class="row">
+                                                        <div class="form-group col-8 ">
+                                                                <input type="text" name="group_id" class="form-control"
+                                                                        placeholder="Group ID" value="" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <button type="button" onclick=""
+                                                                        class="btn btn-yellow">Join</button>
+                                                        </div>
+
+                                                </form>
+                                        </div>
+                                        <p style="color: red; font-size: 5mm;" id="group_not_found">Group not found</p>
+                                </div>
+                        </div>
+
+                        <div class="row right" id="join_group_section_image">
+                                <img src="../static/join_group.svg">
+                        </div>
+
+                </div>
+
+                <!--********************************************  Join Group *********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+                <!--*********************************************** Groups ***********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+                <div class="mt-14">
+                        <h1 style="text-align: center;">Your Groups</h1>
+
+                        <div class="row mt-5 justify-center" id="groups_container">
+
+
+                        </div>
+                </div>
+
+                <!--*********************************************** Groups ***********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                <!--*********************************************** Quizzes ***********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+
+                <div class="mt-14">
+                        <h1 style="text-align: center;">Your Quizzes</h1>
+                        <div class="row mt-5 justify-center" id="quizzes_container">
+
+
+
+                        </div>
+                </div>
+
+                <!--*********************************************** Quizzes ***********************************************-->
+                <!---------------------------------------------------------------------------------------------------------->
+        </div>
+
+        <footer class="mt-5">
+                <p style="font-size: 10mm;font-weight: bold;"> بهنساوي و شركاه</p>
+
+        </footer>
+
+
+        <script>
+                function fetch_grourps() {
+                        var cont = document.getElementById('groups_container');
+                        var groups_dict = [
+                                {
+                                        title: "Algorithms",
+                                        link: "#",
+                                        img_src: "../static/avatar.jpg"
+                                },
+                                {
+                                        title: "Big Data",
+                                        link: "#",
+                                        img_src: "../static/avatar.jpg"
+                                }
+                                ,
+                                {
+                                        title: "Digital Image proccessing",
+                                        link: "#",
+                                        img_src: "../static/avatar.jpg"
+                                }
+                        ];
+                        for (g of groups_dict) {
+                                console.log(typeof g)
+                                var c = document.createElement('div');
+                                c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
+                                c.style.padding = "0px";
+                                c.style.textAlign = 'center';
+                                c.innerHTML = '<img class="card-img-top" src="../static/avatar.jpg" alt="Card image cap"> '
+                                        + '<div class="card-body">'
+                                        + '<h3 class="card-title">' + g.title + '</h3><a href="#" class="btn btn-yellow">View Group</a></div>'
+                                cont.appendChild(c);
+                        }
+                        fetch_quizzes();
+
+                }
+
+                function fetch_quizzes() {
+                        var cont = document.getElementById('quizzes_container');
+                        var quizzes_dict = [
+                                {
+                                        img_src: "../static/avatar.jpg",
+                                        title: "Sorting",
+                                        group: "Algortihms",
+                                        date: "11/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link: "#",
+                                },
+                                {
+                                        img_src : "../static/avatar.jpg",
+                                        title : "Sorting",
+                                        group : "Algortihms",
+                                        date: "11/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link : "#",
+                                },
+                                {
+                                        img_src : "../static/avatar.jpg",
+                                        title : "Sorting",
+                                        group : "Algortihms",
+                                        date: "11/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link : "#",
+                                },
+
+                        ];
+                        for (q of quizzes_dict) {
+                                var c = document.createElement('div');
+                                c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
+                                c.style.padding = "0px";
+
+                                c.innerHTML = '<img class="card-img-top" src="../static/avatar.jpg" alt="Card image cap"> '
+                                        + '<div class="card-body">'
+                                        + ' <h3 class="card-title" style="text-align: center;"><b>' + q.title + '</b></h3>'
+                                        + '<h4><b>Quiz Group: </b>' + q.group + '</h4>'
+                                        + '<p><b>Date: </b>' + q.date + '</p>'
+                                        + '<p><b>Time: </b> ' + q.time + ' </p>'
+                                        + '<p><b>Duration: </b> ' + q.duration + ' </p>'
+                                        + '<div class="flex justify-center mt-3"><a href="' + q.link + '" class="btn btn-yellow">View Quiz</a></div>'
+                                cont.appendChild(c);
+
+                                /*
+                                <div class="card col-lg-3 col-md-3 col-sm-5 m-4" style="padding: 0px;">
+                                        <img class="card-img-top" src="../static/avatar.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                                <h3 class="card-title" style="text-align: center;"><b>Quiz title</b>
+                                                </h3>
+                                                <h4><b>Quiz Group: </b> Algorithms</h4>
+                                                <p><b>Date: </b> 11/2/2021</p>
+                                                <p><b>Time: </b> 8:00</p>
+                                                <p><b>Duration: </b> 2 hours</p>
+                                                <div class="flex justify-center mt-3">
+                                                        <a href="#" class="btn btn-yellow">View Quiz</a>
+                                                </div>
+                                        </div>
+                                </div>
+                                */
+
+                        }
+                }
+        </script>
+
+
 
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
