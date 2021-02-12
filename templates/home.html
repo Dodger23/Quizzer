@@ -101,11 +101,11 @@
         <!---------------------------------------------------------------------------------------------------------->
         <nav class="navbar navbar-dark  flex justify-between">
                 <div>
-                        <a href="#"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                        <a href="/home"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
                 </div>
 
                 <div>
-                        <a href="#" class="mx-3"><span class="selected">Home</span></a>
+                        <a href="/home" class="mx-3"><span class="selected">Home</span></a>
                         <a href="#" class="mx-3"><span>Groups</span></a>
                         <a href="#" class="mx-3"><span>Quizzes</span></a>
                         <a href="#" class="mx-3"><span>About us</span></a>
@@ -113,7 +113,7 @@
 
                 <div class="flex justify-end" style="padding: 10px;">
                         <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
-                        <a href="#"><img class="avatar" src="../static/avatar2.jpg"></a>
+                        <a href="#"><img class="avatar" src="static/avatar2.jpg"></a>
                 </div>
 
         </nav>
@@ -151,7 +151,7 @@
                         </div>
 
                         <div class="row right" id="join_group_section_image">
-                                <img src="../static/join_group.svg">
+                                <img src="static/join_group.svg">
                         </div>
 
                 </div>
@@ -212,18 +212,18 @@
                                 {
                                         title: "Algorithms",
                                         link: "#",
-                                        img_src: "../static/avatar.jpg"
+                                        img_src: "static/avatar.jpg"
                                 },
                                 {
                                         title: "Big Data",
                                         link: "#",
-                                        img_src: "../static/avatar.jpg"
+                                        img_src: "static/avatar.jpg"
                                 }
                                 ,
                                 {
                                         title: "Digital Image proccessing",
                                         link: "#",
-                                        img_src: "../static/avatar.jpg"
+                                        img_src: "static/avatar.jpg"
                                 }
                         ];
                         for (g of groups_dict) {
@@ -232,7 +232,7 @@
                                 c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
                                 c.style.padding = "0px";
                                 c.style.textAlign = 'center';
-                                c.innerHTML = '<img class="card-img-top" src="../static/avatar.jpg" alt="Card image cap"> '
+                                c.innerHTML = '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
                                         + '<div class="card-body">'
                                         + '<h3 class="card-title">' + g.title + '</h3><a href="#" class="btn btn-yellow">View Group</a></div>'
                                 cont.appendChild(c);
@@ -245,7 +245,7 @@
                         var cont = document.getElementById('quizzes_container');
                         var quizzes_dict = [
                                 {
-                                        img_src: "../static/avatar.jpg",
+                                        img_src: "static/avatar.jpg",
                                         title: "Sorting",
                                         group: "Algortihms",
                                         date: "11/2/2021",
@@ -254,7 +254,7 @@
                                         link: "#",
                                 },
                                 {
-                                        img_src : "../static/avatar.jpg",
+                                        img_src : "static/avatar.jpg",
                                         title : "Sorting",
                                         group : "Algortihms",
                                         date: "11/2/2021",
@@ -263,7 +263,7 @@
                                         link : "#",
                                 },
                                 {
-                                        img_src : "../static/avatar.jpg",
+                                        img_src : "static/avatar.jpg",
                                         title : "Sorting",
                                         group : "Algortihms",
                                         date: "11/2/2021",
@@ -278,7 +278,7 @@
                                 c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
                                 c.style.padding = "0px";
 
-                                c.innerHTML = '<img class="card-img-top" src="../static/avatar.jpg" alt="Card image cap"> '
+                                c.innerHTML = '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
                                         + '<div class="card-body">'
                                         + ' <h3 class="card-title" style="text-align: center;"><b>' + q.title + '</b></h3>'
                                         + '<h4><b>Quiz Group: </b>' + q.group + '</h4>'
