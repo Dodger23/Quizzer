@@ -8,13 +8,348 @@
                 crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+                crossorigin="anonymous" />
         <style>
-                
+
+                nav div a:hover {
+                        text-decoration: none;
+                        color: #f7d372;
+                }
+
+                nav {
+                        background-color: #283071;
+                        color: #fff;
+                        font-weight: 600;
+                }
+
+                nav div a span {
+                        font-size: x-large;
+                }
+
+                .selected {
+                        font-weight: 800;
+                        color: #f7d372;
+                }
+
+                .avatar {
+                        vertical-align: middle;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .fa-bars {
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                h1 {
+                        font-size: 40px;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                h3 {
+                        font-size: 22px;
+                }
+
+                .btn-yellow {
+                        background-color: #f7d372;
+                        color: #283071;
+                        font-weight: bold;
+                }
+
+                .btn-yellow:hover {
+                        background-color: orange;
+                }
+
+                header {
+
+                        background-size: cover;
+                }
+
+                .header {
+                        background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                .header .group_title {
+                        color: white;
+                        margin-bottom: 5mm;
+                        font-size: 4rem;
+                }
+
+                .header .group_members_count {
+                        color: white;
+                        margin-bottom: 5mm;
+                        font-size: 3rem;
+                }
+
+                #members_table {
+                        text-align: center;
+                        line-height: 2.5rem;
+                }
+
+                footer {
+                        background-color: #283071;
+                        color: white;
+                        text-align: center;
+                        padding: 10%;
+
+                }
         </style>
 </head>
 
-<body>
+<body onload="fetch_members()">
 
+
+
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-dark  flex justify-between">
+                <div>
+                        <a href="/home"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                </div>
+
+                <div>
+                        <a href="/home" class="mx-3"><span>Home</span></a>
+                        <a href="#" class="mx-3"><span>Groups</span></a>
+                        <a href="#" class="mx-3"><span>Quizzes</span></a>
+                        <a href="#" class="mx-3"><span>About us</span></a>
+                </div>
+
+                <div class="flex justify-end" style="padding: 10px;">
+                        <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
+                        <a href="#"><img class="avatar" src="static/avatar2.jpg"></a>
+                </div>
+
+        </nav>
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <!--********************************************  Header ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <header style="background-image: url('static/avatar.jpg');">
+                <div class="header flex justify-end flex-col" style="height: 700px;padding: 30px;">
+                        <p class="group_title">Algorithms</p>
+                        <p class="group_members_count">3 members</p>
+                </div>
+        </header>
+
+        <!--********************************************  Header ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <!--********************************************  Options ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="container mt-16" id="admin_options">
+                <div class="row justify-evenly" style="padding: 50px;">
+                        <button class="btn btn-yellow col-12 col-md-4 m-2">Create Quiz</button>
+                        <button class="btn btn-danger col-12 col-md-4 m-2">Leave Group</button>
+                </div>
+        </div>
+        <!--********************************************  Options ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <!--********************************************  Members ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="members container">
+                <h1 class="my-9">Members</h1>
+                <table class="table" id="members_table">
+                        <thead class="thead-dark">
+                                <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Options</th>
+                                </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                </table>
+        </div>
+        <!--********************************************  Members ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <!--********************************************  Quizzes ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="container Quizzes mt-60">
+                <h1 class="mb-3">Quizzes</h1>
+                <hr>
+                <div class="coming" style="padding: 50px;">
+                        <h2 style="text-align: center;">Coming</h2>
+                        <div class="mt-14 row justify-center" id="coming">
+
+                        </div>
+                </div>
+
+                <div class="previous">
+                        <h2 style="text-align: center;">Previous</h2>
+                        <div class="mt-14 row justify-center" id="previous">
+
+                        </div>
+                </div>
+        </div>
+
+
+
+
+        <!--********************************************  Quizzes ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+        <footer class="mt-5">
+                <p style="font-size: 10mm;font-weight: bold;"> بهنساوي و شركاه</p>
+
+        </footer>
+
+
+
+
+
+        <script>
+                account_type = "Admin"
+                function fetch_members() {
+                        var members_dict = [
+                                {
+                                        ID: '1',
+                                        Name: 'Ahmed',
+                                        Email: 'Ahmed@gmail.com',
+                                        Role: 'Admin',
+                                },
+                                {
+                                        ID: '2',
+                                        Name: 'Ahmed',
+                                        Email: 'Ahmed@gmail.com',
+                                        Role: 'Student',
+                                },
+                                {
+                                        ID: '3',
+                                        Name: 'Ahmed',
+                                        Email: 'Ahmed@gmail.com',
+                                        Role: 'Student',
+                                },
+                        ];
+
+
+
+                        function options(role) {
+                                if (account_type !== 'Admin')
+                                        return "";
+                                if (role === 'Admin')
+                                        admin_options = '<div id="admin_account"><button class="btn btn-primary m-1">Remove Admin</button>'
+                                else
+                                        admin_options = '<button class="btn btn-success m-1">Make Admin</button>'
+
+                                optionss = admin_options + '<button class="btn btn-danger m-1">Remove Member</button></div>'
+
+                                return optionss;
+                        }
+
+
+
+                        var tbody = document.getElementById('tbody');
+                        for (m of members_dict) {
+                                var tr = document.createElement('tr')
+                                tr.innerHTML = '<th scope="row">' + m.ID + '</th>'
+                                        + '<td>' + m.Name + '</td>'
+                                        + '<td>' + m.Email + '</td>'
+                                        + '<td>' + m.Role + '</td>'
+                                        + '<td>' + options(m.Role) + '</td>'
+                                tbody.appendChild(tr);
+                        }
+
+                        fetch_quizzes();
+                }
+
+
+
+
+
+                function fetch_quizzes() {
+
+
+                        coming = document.getElementById('coming')
+                        prev = document.getElementById('previous')
+
+                        var quizzes_dict = [
+                                {
+                                        img_src: "static/avatar.jpg",
+                                        title: "Sorting",
+                                        group: "Algortihms",
+                                        date: "15/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link: "#",
+                                },
+                                {
+                                        img_src: "static/avatar.jpg",
+                                        title: "Sorting",
+                                        group: "Algortihms",
+                                        date: "11/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link: "#",
+                                },
+                                {
+                                        img_src: "static/avatar.jpg",
+                                        title: "Sorting",
+                                        group: "Algortihms",
+                                        date: "11/2/2021",
+                                        time: "8:00",
+                                        duration: "2 hours",
+                                        link: "#",
+                                },
+
+                        ];
+
+                        for (q of quizzes_dict) {
+                                var cont = document.createElement('div');
+                                cont.classList.add("card" , "col-md-3" , "col-sm-5" , "m-4");
+                                cont.style.padding = "0px" ;
+                                cont.innerHTML = 
+                                        '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
+                                        + '<div class="card-body">'
+                                        + ' <h3 class="card-title" style="text-align: center;"><b>' + q.title + '</b></h3>'
+                                        + '<h4><b>Quiz Group: </b>' + q.group + '</h4>'
+                                        + '<p><b>Date: </b>' + q.date + '</p>'
+                                        + '<p><b>Time: </b> ' + q.time + ' </p>'
+                                        + '<p><b>Duration: </b> ' + q.duration + ' </p>'
+                                        + '<div class="flex justify-center mt-3"><a href="' + q.link + '" class="btn btn-yellow">View Quiz</a></div>'
+
+                                var today = new Date();
+                                var dd = String(today.getDate()).padStart(2, '0');
+                                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                                var yyyy = today.getFullYear();
+
+                                today = dd + '/' + mm + '/' + yyyy;
+                                if (q.date < today)
+                                        prev.appendChild(cont);
+                                else
+                                        coming.appendChild(cont);
+
+                        }
+                }
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

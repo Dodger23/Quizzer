@@ -6,13 +6,18 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def index():
+def login():
     return render_template('login.html')
 
 
 @app.route("/home")
-def mod():
+def home():
     return render_template('home.html')
+
+
+@app.route("/view_group")
+def view_group():
+    return render_template('view_group.html')
 
 
 
