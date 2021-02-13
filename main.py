@@ -24,6 +24,11 @@ def groups():
     return render_template('groups.html')
 
 
+@app.route("/quizzes")
+def quizzes():
+    return render_template('quizzes.html')
+
+
 
 if __name__ == '__main__':
     app.config["TEMPLATES_AUTO_RELOAD"] = True
