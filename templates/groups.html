@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title>Quiz</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+                crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+
+                nav div a:hover {
+                        text-decoration: none;
+                        color: #f7d372;
+                }
+
+                nav {
+                        background-color: #283071;
+                        color: #fff;
+                        font-weight: 600;
+                }
+
+                nav div a span {
+                        font-size: x-large;
+                }
+
+                .selected {
+                        font-weight: 800;
+                        color: #f7d372;
+                }
+
+                .avatar {
+                        vertical-align: middle;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .fa-bars {
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                h1 {
+                        font-size: 40px;
+                        display: block;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                h3 {
+                        font-size: 22px;
+                }
+
+                .btn-yellow {
+                        background-color: #f7d372;
+                        color: #283071;
+                        font-weight: bold;
+                }
+
+                .btn-yellow:hover {
+                        background-color: orange;
+                }
+
+                #group_not_found {
+                        display: none;
+                        color: red;
+                        font-size: 5mm;
+                }
+
+                footer {
+                        background-color: #283071;
+                        color: white;
+                        text-align: center;
+                        padding: 10%;
+
+                }
+        </style>
+</head>
+
+<body onload="fetch_groups()">
+
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-dark  flex justify-between">
+                <div>
+                        <a href="/home"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                </div>
+
+                <div>
+                        <a href="/home" class="mx-3"><span>Home</span></a>
+                        <a href="#" class="mx-3"><span class="selected">Groups</span></a>
+                        <a href="#" class="mx-3"><span>Quizzes</span></a>
+                        <a href="#" class="mx-3"><span>About us</span></a>
+                </div>
+
+                <div class="flex justify-end" style="padding: 10px;">
+                        <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
+                        <a href="#"><img class="avatar" src="static/avatar2.jpg"></a>
+                </div>
+
+        </nav>
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+        <!--******************************************** Group Options ********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="container">
+                <div class="group row justify-center" style="padding: 200px 50px 50px 50px;">
+                        <div class="create_group col-12  col-md-6" id="create_group">
+                                <div class="mx-auto mb-12">
+                                        <h1 class="mb-3">Create Group</h1>
+                                        <h3 style="color: #5A5A5A;">A Group ID will be created for you, you can send it
+                                                <br>
+                                                to people you want to join the group
+                                        </h3>
+                                        <div class="mt-5">
+                                                <form class="row">
+                                                        <div class="form-group col-8 ">
+                                                                <input type="text" name="group_name"
+                                                                        class="form-control" placeholder="Group Name"
+                                                                        value="" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <button type="button" onclick="create_group()"
+                                                                        class="btn btn-yellow">Create</button>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="Join group col-12 col-md-6">
+                                <div class="mx-auto">
+                                        <h1 class="mb-3">Join Group</h1>
+                                        <h3 style="color: #5A5A5A;">If you don't have the group id please ask your
+                                                instructor<br> to give it to you</h3>
+                                        <div class="mt-5">
+                                                <form class="row">
+                                                        <div class="form-group col-8 ">
+                                                                <input type="text" name="group_id" class="form-control"
+                                                                        placeholder="Group ID" value="" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <button type="button" onclick="join_group()"
+                                                                        class="btn btn-yellow">Join</button>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                        <p id="group_not_found">Group not found</p>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <!--******************************************** Group Options ********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <!--*********************************************** Groups ***********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="mt-14">
+                <h1 style="text-align: center;">Your Groups</h1>
+
+                <div class="row mt-5 justify-center" id="groups_container" style="margin: 50px 0px 0px 0px;">
+
+
+                </div>
+        </div>
+
+        <!--*********************************************** Groups ***********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+        <footer class="mt-5">
+                <p style="font-size: 10mm;font-weight: bold;"> بهنساوي و شركاه</p>
+
+        </footer>
+
+
+        <script>
+                account_Type = "Instructor"
+                if (account_Type !== "Instructor") {
+                        var e = document.getElementById('create_group')
+                        e.style.display = "none";
+                }
+                function fetch_groups() {
+
+                        var cont = document.getElementById('groups_container');
+                        var groups_dict = [
+                                {
+                                        title: "Algorithms",
+                                        link: "#",
+                                        img_src: "static/avatar.jpg"
+                                },
+                                {
+                                        title: "Big Data",
+                                        link: "#",
+                                        img_src: "static/avatar.jpg"
+                                }
+                                ,
+                                {
+                                        title: "Digital Image proccessing",
+                                        link: "#",
+                                        img_src: "static/avatar.jpg"
+                                }
+                        ];
+                        for (g of groups_dict) {
+                                var c = document.createElement('div');
+                                c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
+                                c.style.padding = "0px";
+                                c.style.textAlign = 'center';
+                                c.innerHTML = '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
+                                        + '<div class="card-body">'
+                                        + '<h3 class="card-title">' + g.title + '</h3><a href="#" class="btn btn-yellow">View Group</a></div>'
+                                cont.appendChild(c);
+                        }
+                }
+
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+</body>

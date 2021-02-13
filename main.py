@@ -19,6 +19,10 @@ def home():
 def view_group():
     return render_template('view_group.html')
 
+@app.route("/groups")
+def groups():
+    return render_template('groups.html')
+
 
 
 if __name__ == '__main__':
