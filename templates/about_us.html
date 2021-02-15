@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title>About us</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+                crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+                crossorigin="anonymous" />
+        <style>
+                nav div a:hover {
+                        text-decoration: none;
+                        color: #f7d372;
+                }
+
+                nav {
+                        background-color: #283071;
+                        color: #fff;
+                        font-weight: 600;
+                }
+
+                nav div a span {
+                        font-size: x-large;
+                }
+
+                .selected {
+                        font-weight: 800;
+                        color: #f7d372;
+                }
+
+                .avatar {
+                        vertical-align: middle;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .fa-bars {
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                h1 {
+                        font-size: 40px;
+                        display: block;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                h3 {
+                        font-size: 22px;
+                }
+
+                .btn-yellow {
+                        background-color: #f7d372;
+                        color: #283071;
+                        font-weight: bold;
+                }
+
+                .btn-yellow:hover {
+                        background-color: orange;
+                }
+
+                #group_not_found {
+                        display: none;
+                        color: red;
+                        font-size: 5mm;
+                }
+
+
+
+                .instructor_card {
+
+                        display: flex;
+                        justify-content: center;
+                }
+
+                .instructor_text {
+                        font-family: 'Poppins', sans-serif;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        font-size: 30px;
+                }
+
+                .team {
+                        font-family: 'Poppins', sans-serif;
+                        margin-top: 50px;
+                        display: flex;
+                        justify-content: space-around;
+                }
+
+
+                .card{
+                        margin-top: 30px;
+                }
+                .card-text {
+                        font-weight: 900;
+                }
+
+                .cert img {
+                        margin-top: 20px;
+                }
+
+                .cont {
+
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        margin-bottom: 100px;
+                        margin-top: 30px;
+                        padding: 0px
+                }
+
+                footer {
+                        background-color: #283071;
+                        color: white;
+                        text-align: center;
+                        padding: 10%;
+
+                }
+        </style>
+</head>
+
+
+<body>
+
+
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-dark  flex justify-between">
+                <div>
+                        <a href="/home"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                </div>
+
+                <div>
+                        <a href="/home" class="mx-3"><span>Home</span></a>
+                        <a href="/groups" class="mx-3"><span>Groups</span></a>
+                        <a href="/quizzes" class="mx-3"><span>Quizzes</span></a>
+                        <a href="/about_us" class="mx-3"><span class="selected">About us</span></a>
+                </div>
+
+                <div class="flex justify-end" style="padding: 10px;">
+                        <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
+                        <a href="#"><img class="avatar" src="static/avatar2.jpg"></a>
+                </div>
+
+        </nav>
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+        <!--********************************************  Quizzer ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+        <div class="container flex justify-center">
+                <div style="padding: 50px;">
+                        <h1 class="mb-5" style="font-size: 50px;font-weight: bold;">Quizzer</h1>
+                        <h3 class="instructor_text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+                                sapiente delectus praesentium facere
+                                cumque nesciunt mollitia odit, deleniti neque debitis soluta
+                                illum architecto dolores optio dicta
+                                molestias consectetur aspernatur ad!</h3>
+
+                </div>
+        </div>
+        <!--********************************************  Quizzer ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+        <!--********************************************  About Team *********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="container">
+                <div  style="padding-top: 100px;">
+                        <div class="instructor">
+                                <p style="font-size: 50px;text-align: center;">Instructor</p>
+                                <div class="section row">
+
+                                        <div class="instructor_card col-lg-6">
+                                                <div class="card" style="width: 18rem;">
+                                                        <img class="card-img-top"
+                                                                src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                                alt="Card image cap">
+                                                        <div class="card-body">
+                                                                <h5 class="card-title">Dr. Essam Elfakharany</h5>
+                                                                <a href="#" class="btn btn-primary">personal profile</a>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="instructor_text col-lg-6">
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+                                                        sapiente delectus praesentium facere
+                                                        cumque nesciunt mollitia odit, deleniti neque debitis soluta
+                                                        illum architecto dolores optio dicta
+                                                        molestias consectetur aspernatur ad!</p>
+                                        </div>
+
+                                </div>
+
+                        </div>
+
+                        <div style="padding: 100px;margin-top: 100px;">
+                                <p style="font-size: 50px; text-align: center;font-family: 'Poppins', sans-serif;">Team
+                                        members</p>
+                                <div class="team row ">
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title">Ahmed Saber</h5>
+                                                        <p style="color: #5a5a5a;">Team Leader</p>
+                                                        <a href="#"
+                                                                class="btn btn-primary">LinkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title" style="margin-bottom: 23px;">Hamze Hassan</h5>
+                                                        <a href="#" class="btn btn-primary">LinkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title">Merna Tharwat</h5>
+                                                        </br>
+                                                        </br>
+                                                        <a href="#"
+                                                                class="btn btn-primary">linkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title">Ziad Abdelnaser</h5>
+                                                        </br>
+                                                        </br>
+                                                        <a href="#"
+                                                                class="btn btn-primary">LinkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title">Mohammed Hassan</h5>
+                                                        </br>
+                                                        </br>
+                                                        <a href="https://www.linkedin.com/in/moharidy98"
+                                                                class="btn btn-primary">LinkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                        <div class="card" style="width: 18rem;">
+                                                <img class="card-img-top"
+                                                        src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+                                                        alt="Card image cap">
+                                                <div class="card-body">
+                                                        <h5 class="card-title">Ali Elnoby</h5>
+                                                        </br>
+                                                        </br>
+                                                        <a href="https://www.linkedin.com/in/moharidy98"
+                                                                class="btn btn-primary">LinkedIn profile</a>
+                                                </div>
+                                        </div>
+
+                                </div>
+                        </div>
+
+                </div>
+
+        </div>
+
+        <!--********************************************  About Team *********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <footer class="mt-5">
+                <p style="font-size: 10mm;font-weight: bold;"> بهنساوي و شركاه</p>
+
+        </footer>
+
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+
+</body>
+
+</html>
