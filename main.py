@@ -33,6 +33,11 @@ def about_us():
     return render_template('about_us.html')
 
 
+@app.route("/profile")
+def profile():
+    return render_template('profile.html')
+
+
 
 if __name__ == '__main__':
     app.config["TEMPLATES_AUTO_RELOAD"] = True
