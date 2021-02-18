@@ -37,6 +37,12 @@ def about_us():
 def profile():
     return render_template('profile.html')
 
+@app.route("/quiz_maker")
+def quiz_maker():
+    return render_template('quiz_maker.html')
+
+
+
 
 
 if __name__ == '__main__':

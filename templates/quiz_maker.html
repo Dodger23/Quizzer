@@ -3,26 +3,344 @@
 
 <head>
         <title>Quiz Maker</title>
+
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
                 integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
                 crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <style>
-                
-        </style>
-</head>
 
-<body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
                 integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
                 crossorigin="anonymous"></script>
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
                 integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
                 crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+                crossorigin="anonymous" />
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        <style>
+                body {
+                        height: 10000px;
+                }
+
+
+                input:focus {
+                        outline: none;
+                        border-bottom: 2px solid #283071;
+
+                }
+
+                textarea {
+                        resize: none;
+                }
+
+                textarea:focus {
+                        outline: none;
+                        border-bottom: 2px solid #283071;
+                }
+
+                nav div a:hover {
+                        text-decoration: none;
+                        color: #f7d372;
+                }
+
+                nav {
+                        background-color: #283071;
+                        color: #fff;
+                        font-weight: 600;
+                }
+
+                nav div a span {
+                        font-size: x-large;
+                }
+
+                .selected {
+                        font-weight: 800;
+                        color: #f7d372;
+                }
+
+                .avatar {
+                        vertical-align: middle;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .fa-bars {
+                        color: #fff;
+                        cursor: pointer;
+                }
+
+                h1 {
+                        font-size: 40px;
+                }
+
+                h2 {
+                        font-size: 32px;
+                }
+
+                h3 {
+                        font-size: 22px;
+                }
+
+                .btn-yellow {
+                        background-color: #f7d372;
+                        color: #283071;
+                        font-weight: bold;
+                }
+
+                .btn-yellow:hover {
+                        background-color: orange;
+                }
+
+                .delete_icon {
+                        text-align: center;
+                        color: #929292;
+                        cursor: pointer;
+                }
+
+                .delete_icon:hover {
+                        color: #444444;
+                }
+
+                footer {
+                        background-color: #283071;
+                        color: white;
+                        text-align: center;
+                        padding: 10%;
+
+                }
+        </style>
+</head>
+
+<body onload="fill_data()">
+
+
+
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <nav class="navbar navbar-dark  flex justify-between">
+                <div>
+                        <a href="/home"><span style="font-weight: bold;font-size: 10mm;">Quizzer</span></a>
+                </div>
+
+                <div>
+                        <a href="/home" class="mx-3"><span>Home</span></a>
+                        <a href="/groups" class="mx-3"><span>Groups</span></a>
+                        <a href="/quizzes" class="mx-3"><span>Quizzes</span></a>
+                        <a href="/about_us" class="mx-3"><span>About us</span></a>
+                </div>
+
+                <div class="flex justify-end" style="padding: 10px;">
+                        <i class="fas fa-bars fa-2x mt-2 mr-3"></i>
+                        <a href="/profile"><img class="avatar" src="static/avatar2.jpg"></a>
+                </div>
+
+        </nav>
+        <!--********************************************  NAV BAR ************************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+        <!--********************************************  Create quiz **********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+        <div class="container">
+
+                <div class="quiz-discription shadow p-5 mt-5 grid grid-rows-2">
+
+                        <div style="font-size: 32px;" class="row-span-1 grid grid-cols-3">
+                                <input placeholder="Quiz title here" class="col-span-2">
+                        </div>
+
+                        <div style="font-size: 22px;" class="row-span-1 grid grid-cols-1">
+                                <textarea placeholder="Quiz description here"
+                                        style="padding: 20px 0px 0px 0px; max-height: 66px;"></textarea>
+                        </div>
+                </div>
+
+                <div class="quiz_time grid grid-rows-1 grid-cols-3 gap-24" style="padding: 100px 50px;">
+
+                        <div class="col-span-3 lg:col-span-1 grid grid-rows-2 gap-2">
+                                <label class="row-span-1">
+                                        Date
+                                </label>
+                                <input class="date row-span-1 " id="quiz_date" name="quizDate"
+                                        data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
+                        </div>
+
+                        <div class="col-span-3 lg:col-span-1 grid grid-rows-2 grid-cols-2">
+                                <label class="row-span-1 ">
+                                        Time
+                                </label>
+                                <div class="row-span-1 col-span-2 grid grid-rows-1 grid-cols-2 gap-2">
+                                        <select class="form-control col-span-1" id="time_hours">
+                                                <option selected>hour</option>
+
+                                        </select>
+
+                                        <select class="form-control col-span-1" id="time_minutes">
+                                                <option selected>minute</option>
+                                        </select>
+                                </div>
+
+                        </div>
+
+                        <div class="col-span-3 lg:col-span-1 grid grid-rows-2 grid-cols-2">
+                                <label class="row-span-1">Duration</label>
+                                <div class="row-span-1 col-span-2 grid grid-rows-1 grid-cols-2 gap-2">
+                                        <select class="form-control col-span-1" id="duration_hours">
+                                                <option selected>hours</option>
+                                        </select>
+
+                                        <select class="form-control col-span-1" id="duration_minutes">
+                                                <option selected>minutes</option>
+                                        </select>
+                                </div>
+                        </div>
+
+                </div>
+
+
+
+
+
+
+
+                <div class="question shadow  justify-center ">
+                        <div class="grid grid-cols-10 gap-6 " style="padding: 50px;">
+
+                                <div class="col-start-1"></div>
+
+                                <textarea name="question_head" class="question_head col-span-6" placeholder="Question"
+                                        style="padding: 15px 0px 0px 10px ; background-color: #f8f9fa; max-height: 60px;"></textarea>
+
+
+                                <select class="col-span-2 form-control" style="min-height: 60px;">
+                                        <option>MCQ</option>
+                                        <option>Matching</option>
+                                        <option>True or False</option>
+                                        <option>Essay</option>
+                                </select>
+
+
+                        </div>
+
+                        <div class="grid grid-cols-10 gap-6" style="padding: 10px 0px 50px 0px;" id="q1">
+                                <div class="col-span-10 grid grid-cols-10 gap-6" id="option_1">
+                                        <div class="col-start-1"></div>
+                                        <input type="radio" style="min-height: 65px; ">
+                                        <textarea class="col-span-6" placeholder="Option"
+                                                style="padding: 20px 0px 0px 10px ; max-height: 55px;"></textarea>
+                                        <div class="col-span-1 flex flex-col justify-center">
+                                                <i class="fas fa-times fa-2x delete_icon"  onclick="delete_option(this)"></i>
+                                        </div>
+                                </div>
+
+                                <div class="col-span-10 grid grid-cols-10">
+                                        <div class="col-start-2"></div>
+                                        <p class="col-span-8" style="cursor: pointer;" onclick="add_option(this)">Add
+                                                option</p>
+                                </div>
+
+                        </div>
+                </div>
+
+        </div>
+        <!--********************************************  Create quiz **********************************************-->
+        <!---------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer class="mt-5">
+                <p style="font-size: 10mm;font-weight: bold;"> بهنساوي و شركاه</p>
+
+        </footer>
+
+
+
+
+
+        <script>
+
+                options_cnt = 2; 
+                $('.date').datepicker({
+                        format: 'dd-mm-yyyy',
+                });
+
+
+                function fill_data() {
+                        var dh = document.getElementById("duration_hours")
+                        var dm = document.getElementById("duration_minutes")
+                        var th = document.getElementById("time_hours")
+                        var tm = document.getElementById("time_minutes")
+
+                        for (i = 0; i <= 23; i++) {
+                                var e = document.createElement('option')
+                                var x = document.createElement('option')
+                                e.innerText = i;
+                                x.innerText = i;
+                                dh.appendChild(e);
+                                th.appendChild(x);
+                        }
+
+                        for (i = 0; i <= 59; i++) {
+                                var e = document.createElement('option')
+                                var x = document.createElement('option')
+                                e.innerText = i;
+                                x.innerText = i;
+                                dm.appendChild(e);
+                                tm.appendChild(x);
+                        }
+
+
+                }
+
+
+                function add_option(add) {
+                        var q = add.parentNode.parentNode;
+                        var new_option = document.createElement("div");
+                        new_option.classList.add("col-span-10" , "grid" , "grid-cols-10" , "gap-6") ;
+                        new_option.innerHTML = '<div class="col-start-1"></div> '
+                                + '<input type="radio" style="min-height: 65px; "> '
+                                + '<textarea class="col-span-6" placeholder="Option" '
+                                + '        style="padding: 20px 0px 0px 10px ; max-height: 55px;"></textarea> '
+                                + '<div class="col-span-1 flex flex-col justify-center"> '
+                                + '        <i class="fas fa-times fa-2x delete_icon" id="option_1" onclick="delete_option(this)"></i> '
+                                + '</div>'
+                                + '</div>'
+                        q.insertBefore(new_option, q.lastElementChild);
+                        options_cnt++ ;
+                }
+
+                function delete_option(op)
+                {
+                        var p = op.parentNode.parentNode ;
+                        p.parentNode.removeChild(p) ;
+
+                }
+
+        </script>
+
 </body>
