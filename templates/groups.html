@@ -205,18 +205,18 @@
                         var groups_dict = [
                                 {
                                         title: "Algorithms",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 },
                                 {
                                         title: "Big Data",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 }
                                 ,
                                 {
                                         title: "Digital Image proccessing",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 }
                         ];
@@ -227,7 +227,7 @@
                                 c.style.textAlign = 'center';
                                 c.innerHTML = '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
                                         + '<div class="card-body">'
-                                        + '<h3 class="card-title">' + g.title + '</h3><a href="#" class="btn btn-yellow">View Group</a></div>'
+                                        + '<h3 class="card-title">' + g.title + '</h3><a href="'+g.link+'" class="btn btn-yellow">View Group</a></div>'
                                 cont.appendChild(c);
                         }
                 }

@@ -154,7 +154,7 @@
         <!---------------------------------------------------------------------------------------------------------->
         <div class="container mt-16" id="admin_options">
                 <div class="row justify-evenly" style="padding: 50px;">
-                        <button class="btn btn-yellow col-12 col-md-4 m-2">Create Quiz</button>
+                        <button class="btn btn-yellow col-12 col-md-4 m-2" onclick="create_quiz()">Create Quiz</button>
                         <button class="btn btn-danger col-12 col-md-4 m-2">Leave Group</button>
                 </div>
         </div>
@@ -348,6 +348,11 @@
                                         coming.appendChild(cont);
 
                         }
+                }
+
+                function create_quiz()
+                {
+                        window.location.href = '/quiz_maker' ;
                 }
         </script>
 

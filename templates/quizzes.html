@@ -111,7 +111,7 @@
         <!---------------------------------------------------------------------------------------------------------->
         <div class="container" id="create_quiz">
                 <div class="row justify-center" style="padding: 200px 50px;">
-                        <button class="btn btn-yellow col-6">Create Quiz</button>
+                        <button class="btn btn-yellow col-6" onclick='create_quiz()'>Create Quiz</button>
                 </div>
         </div>
 
@@ -173,10 +173,10 @@
                                         img_src: "static/avatar.jpg",
                                         title: "Sorting",
                                         group: "Algortihms",
-                                        date: "15/2/2021",
+                                        date: "1/3/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link: "#",
+                                        link: "/quiz",
                                 },
                                 {
                                         img_src: "static/avatar.jpg",
@@ -185,7 +185,7 @@
                                         date: "11/2/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link: "#",
+                                        link: "/quiz",
                                 },
                                 {
                                         img_src: "static/avatar.jpg",
@@ -194,7 +194,7 @@
                                         date: "11/2/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link: "#",
+                                        link: "/quiz",
                                 },
 
                         ];
@@ -225,6 +225,11 @@
                                         coming.appendChild(cont);
 
                         }
+                }
+
+                function create_quiz()
+                {
+                        window.location.href = '/quiz_maker' ;
                 }
         </script>
 

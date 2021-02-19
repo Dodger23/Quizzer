@@ -211,30 +211,29 @@
                         var groups_dict = [
                                 {
                                         title: "Algorithms",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 },
                                 {
                                         title: "Big Data",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 }
                                 ,
                                 {
                                         title: "Digital Image proccessing",
-                                        link: "#",
+                                        link: "/view_group",
                                         img_src: "static/avatar.jpg"
                                 }
                         ];
                         for (g of groups_dict) {
-                                console.log(typeof g)
                                 var c = document.createElement('div');
                                 c.classList.add("card", "col-lg-3", "col-md-3", "col-sm-5", "m-4");
                                 c.style.padding = "0px";
                                 c.style.textAlign = 'center';
                                 c.innerHTML = '<img class="card-img-top" src="static/avatar.jpg" alt="Card image cap"> '
                                         + '<div class="card-body">'
-                                        + '<h3 class="card-title">' + g.title + '</h3><a href="#" class="btn btn-yellow">View Group</a></div>'
+                                        + '<h3 class="card-title">' + g.title + '</h3><a href="'+g.link+'" class="btn btn-yellow">View Group</a></div>'
                                 cont.appendChild(c);
                         }
                         fetch_quizzes();
@@ -248,10 +247,10 @@
                                         img_src: "static/avatar.jpg",
                                         title: "Sorting",
                                         group: "Algortihms",
-                                        date: "11/2/2021",
+                                        date: "1/3/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link: "#",
+                                        link: "/quiz",
                                 },
                                 {
                                         img_src : "static/avatar.jpg",
@@ -260,7 +259,7 @@
                                         date: "11/2/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link : "#",
+                                        link : "/quiz",
                                 },
                                 {
                                         img_src : "static/avatar.jpg",
@@ -269,7 +268,7 @@
                                         date: "11/2/2021",
                                         time: "8:00",
                                         duration: "2 hours",
-                                        link : "#",
+                                        link : "/quiz",
                                 },
 
                         ];
