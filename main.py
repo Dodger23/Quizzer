@@ -42,6 +42,18 @@ def quiz_maker():
     return render_template('quiz_maker.html')
 
 
+@app.route("/quiz")
+def quiz():
+    return render_template('quiz.html')
+
+
+@app.route("/attemp")
+def attemp():
+    return render_template('attemp.html')
+
+
+
+
 
 
 
