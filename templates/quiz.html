@@ -12,7 +12,6 @@
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
                 crossorigin="anonymous" />
         <style>
-
                 input:focus {
                         outline: none;
                         border-bottom: 2px solid #283071;
@@ -125,7 +124,8 @@
         <!---------------------------------------------------------------------------------------------------------->
 
         <div class="container">
-                <div class="grid grid-cols-12 grid-rows-6 p-50 gap-12" style="font-size: 32px; text-align: center; padding: 50px;">
+                <div class="grid grid-cols-12 grid-rows-6 p-50 gap-12"
+                        style="font-size: 32px; text-align: center; padding: 50px;">
                         <p class="col-span-12 row-span-1"><b>Group:</b> <span id="group">Algorithms</span> </p>
                         <p class="col-span-12 row-span-1"><b>Date:</b> <span id="date">23/3/2021</span> </p>
                         <p class="col-span-12 row-span-1"><b>Time:</b> <span id="time">20:30</span> </p>
@@ -153,36 +153,34 @@
         <script>
 
                 var quiz_data = {
-                        "groupd" : "Algorithms",
-                        "date" : "19/2/2021",
-                        "time" : {
-                                "hours" : "5",
-                                "minutes" : "15"
+                        "groupd": "Algorithms",
+                        "date": "25/4/2021",
+                        "time": {
+                                "hours": "5",
+                                "minutes": "15"
                         },
-                        "duration" : {
-                                "hours" : "2",
-                                "minutes" : "00"
+                        "duration": {
+                                "hours": "2",
+                                "minutes": "00"
                         },
                 }
 
-                function fill_data()
-                {
-                        var e = document.getElementById('group') ;
-                        e.innerText = quiz_data["groupd"] ;
+                function fill_data() {
+                        var e = document.getElementById('group');
+                        e.innerText = quiz_data["groupd"];
 
-                        e = document.getElementById('date') ;
-                        e.innerText = quiz_data["date"] ;
+                        e = document.getElementById('date');
+                        e.innerText = quiz_data["date"];
 
-                        e = document.getElementById('time') ;
-                        e.innerText = quiz_data["time"]["hours"] + ':' + quiz_data["time"]["minutes"] ;
+                        e = document.getElementById('time');
+                        e.innerText = quiz_data["time"]["hours"] + ':' + quiz_data["time"]["minutes"];
 
-                        e = document.getElementById('duration') ;
-                        e.innerText = quiz_data["duration"]["hours"] + ":" + quiz_data["duration"]["minutes"]  ;
-                        
+                        e = document.getElementById('duration');
+                        e.innerText = quiz_data["duration"]["hours"] + ":" + quiz_data["duration"]["minutes"];
+
                 }
 
-                function attemp()
-                {
+                function attemp() {
                         /*var date = document.getElementById('date') ;
                         var today = new Date() ;
                         var today_date = today.getDate() + '/' + (today.getMonth()+1)  +'/' + today.getFullYear() ;
